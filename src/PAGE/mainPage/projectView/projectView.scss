@@ -1,0 +1,41 @@
+$border-color:white;
+
+.f-c-s-s{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.f-c-c-s{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}.f-r-c-c{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.f-c-c-c{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}.f-r-c-s{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: flex-start;
+}
+
+.container-projectView{
+    width: 98vw;
+    height: auto;
+    margin-top: 3rem;
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: 1fr 56px 0.7fr;
+    margin-left: auto;
+    margin-right: auto;
+}
