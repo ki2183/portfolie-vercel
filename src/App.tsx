@@ -34,14 +34,3 @@ function App() {
 }
 
 export default App;
-
-function Test(){
-  const Theme = useAppSelector(state => state.theme)
-  const dispatch = useDispatch()
-  return <InitialFrame>
-    <button style={{marginTop:"150px"}} onClick={e=>{
-      e.preventDefault()
-      dispatch(change_theme(Theme.theme === "light"?"dark":"light"))
-    }}>버어어어어튼</button>
-  </InitialFrame>
-}

@@ -8,9 +8,11 @@ export const modalSlice = createSlice({
     initialState,
     reducers: {
         modal_open:(state)=>{
+            document.documentElement.classList.add('no-scroll');
             return true
         },
         modal_close:(state)=>{
+            document.documentElement.classList.remove('no-scroll'); 
             return false
         }
     }

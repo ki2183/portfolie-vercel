@@ -11,7 +11,7 @@ function Nav(){
 
     return (
         <div className="container-nav">
-            <span>ki2183</span>
+            <span>김기준</span>
             <div>
                 <ChangeTheme/>
             </div>

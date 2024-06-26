@@ -100,6 +100,10 @@ function AboutFrontend({wh}:about_type){
         },{
             src:"react",
             name:"react"
+        },
+        {
+            src:"nextjs",
+            name:"nextjs"
         },{
             src:"reactquery",
             name:"reactquery"
@@ -117,7 +121,6 @@ function AboutFrontend({wh}:about_type){
 
     return (
         <AboutFrame 
-                // x={50}
                 y={70}
                 wh={wh}
                 title={"frontend-me"}
@@ -158,6 +161,9 @@ function AboutBackend({wh}:about_type){
             src:"vercel",
             name:"vercel",
             baseColor:"base-white-svg"
+        },{
+            src:"postgres",
+            name:"postgres",
         }
     ]
 

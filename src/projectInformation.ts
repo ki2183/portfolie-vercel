@@ -14,6 +14,7 @@ export type InfoModal_type = {
     img:string,
     title:string,
     link:string,
+    git:string,
     feature:string[],
     reason:string[],
     date:string,
@@ -25,6 +26,7 @@ export const project_information_dto = [
         img:"Dapp",
         title:"배달웹 프로젝트",
         link:"https://d-app-frontend-9610p28mo-gijoonkims-projects.vercel.app/login",
+        git:"https://d-app-frontend.vercel.app/",
         reason:["배달앱/웹의 전반적인 기능을 구현 해보기 위해서 만든 사이트입니다.",
         "당시 배달의민족과 요기요 같은 배달 플랫폼이 뜨거웠기에 한 번 구현해 보고자 프로젝트를 진행해 보았습니다."
     ],
@@ -56,7 +58,8 @@ export const project_information_dto = [
     {
         img:"timeline",
         title:"한신대 수강 신청 추천 웹 프로젝트",
-        link:"https://resister-course-vercel-mc1lnd472-gijoonkims-projects.vercel.app/",
+        link:"https://resister-course-vercel.vercel.app/",
+        git:"https://github.com/ki2183/Resister_Course",
         reason:[
             "한신대 수강신청 추천 웹사이트 입니다.",
             "일부 타학교에는 존재하나 한신대에는 존재하지 않아 졸업 작품주제로 선정하고 프로젝트를 진행하였습니다."
@@ -89,6 +92,7 @@ export const project_information_dto = [
         img:"music",
         title:"뮤직플레이어",
         link:"https://music-ts-gamma.vercel.app/",
+        git:"https://github.com/ki2183/music_ts",
         reason:[
             "뮤직플레이어 입니다.",
             "평소에 게임bgm을 많이 듣는데 음악 스트리밍 사이트나 유튜브에는 듣고 싶은 음악이 없는 경우가 있어 아쉬워서 내가 듣는 노래를 모아놓은 사이트를 만들어야지 싶어 만들었습니다",
@@ -111,7 +115,7 @@ export const project_information_dto = [
             ],
         },
         reflection:[
-            '자동 타입지정해주는 javascript에 한계를 느껴 typescript를 생산성을 늘리기위해 tailwind를 학습하고 적용해보기위해 진행했습니다.',
+            '자동 타입지정해주는 javascript에 한계를 느껴 typescript를 생산성을 늘리기위해 tailwind를 학습하고 적용해보기위해 토이 프로젝트를 진행했습니다.',
             '이전 프로젝트에서는 컴포넌트에 함수를 그냥 명시했었는데 유지보수성과 확장성을 위해서 custom-hook 디자인패턴을 사용했습니다.',
             '생산성을 향상시키기 위해서 tailwind를 사용해 보았습니다.'
         ],
@@ -119,7 +123,8 @@ export const project_information_dto = [
     },{
         img:"memo",
         title:"메모 웹",
-        link:"https://memo-vercel-nz7tu90pw-gijoonkims-projects.vercel.app/",
+        link:"memo-vercel.vercel.app",
+        git:"https://memo-vercel.vercel.app/",
         reason:[
             "메모 웹사이트입니다.",
             "이 프로젝트는 메모 웹사이트를 개발하는 것이었습니다. 첫 프로젝트부터 벨로그나 노션 같은 텍스트 에디터를 만들어 리뷰/댓글 작성 기능에 적용하고 싶었으나, 당시 실력 부족으로 구현하지 못했습니다. 이후, React Query와 Redux를 학습하고 나서 React Query가 이 프로젝트에 적합한 컨셉이라고 생각되어 사용하게 되었습니다.",
@@ -146,8 +151,80 @@ export const project_information_dto = [
             ],
         },
         reflection:[
-            " 텍스트 에디터 특성상 이벤트리스너가 많았는데, 초기에는 익숙하지 않았던 Typescript로 구현하기 꽤 벅찼으나, 프로젝트를 점차 진행하며 리액트 타입에 적응하여 능숙하게 사용할 수 있게 되었습니다.",
-            "react-query를 사용하여 외부 API에서 제공해주는 비동기 데이터를 더 효율적으로 관리할 수 있게 되었습니다."
+            "텍스트 에디터 특성상 이벤트리스너가 많았는데, 초기에는 익숙하지 않았던 Typescript로 구현하기 꽤 벅찼으나, 프로젝트를 점차 진행하며 리액트 타입에 적응하여 능숙하게 사용할 수 있게 되었습니다.",
+            "react-query를 사용하여 서버 캐싱이란 기능을 접하고 비용과 렌더링 속도를 보며 필요성을 느끼게 되었습니다."
+        ],
+        date:"20240307~20240417",
+    },{
+        img:"portfolie",
+        title:"폴트폴리오 사이트",
+        link:"https://portfolie-vercel.vercel.app/",
+        git:"https://github.com/ki2183/my-Portfolio-site",
+        reason:[
+            "폴트폴리오 사이트 입니다.",
+            "폴트폴리오를 모아놓는 사이트를 만들고 싶었고, 최대한 동적인 사이트를 만들고 싶어서 GSAP Scroll Trigger을 적극 활용했습니다.",
+        ],
+        feature:["스택,폴트폴리오"],
+        stacks:{
+            frontends:[
+                {src:"html",title:"html"},
+                {src:"scss",title:"scss"},
+                {src:"typescript",title:"typescript"},
+                {src:"redux",title:"redux"},
+                {src:"react",title:"react"},
+            ],
+            backends: [
+                {src:"vercel",title:"vercel",class_name:"base-white-svg"},
+            ],
+            versionControls: [
+                {src:"git",title:"git"},
+                {src:"github",title:"github",class_name:"base-white-svg"},
+            ],
+        },
+        reflection:[
+            "scss를 사용한 이유는 css보다 가독성이 좋다고 해서 사용해보았는데 별차이 없어서 빠르게 적응했습니다.",
+            "Scroll Trigger과 Typescript는 상성이 좋지않는데다가 창 크기를 조절할때마다 모든 컴포넌트의 ScrollTrigger이 사라지는 오류가 발생했었습니다. \
+            하지만 이 문제는 컴포넌트의 라이프 사이클 관리에 개선을 도입함으로써 해결했습니다. ScrollTrigger의 kill메소드는 모든 ScrollTrigger을 없앴기에 clean up시 \
+            해당 ref에 할당되어있는 애니메이션을 kill함으로써 간섭을 줄이고 리사이즈시 ScrollTrigger가 초기화 되는 문제를 해결했습니다.",
+        ],
+        date:"20240307~20240417",
+    },{
+        img:"geosantech",
+        title:"거산테크",
+        link:"https://geosantech.kr",
+        git:"https://github.com/ki2183/geosan_webpage_project",
+        reason:[
+            "거산테크 웹페이지 입니다.",
+            "이 프로젝트는 저의 아버지 회사 사이트입니다. 간단하게 회사소개,거래처,기계현황을 보여주기 위해 만든 사이트입니다. seo최적화를 위해 nextjs를 사용하였습니다.",
+            "회사 위치를 시각적으로 보여주기위해서 카카오 맵 api를 사용하였습니다.",
+            "구글과 네이버 검색엔진에 도메인 등록 및 메타데이터를 추가하였습니다."
+        ],
+        feature:["회사소개","기계현황","거래처"],
+        stacks:{
+            frontends:[
+                {src:"html",title:"html"},
+                {src:"css",title:"css"},
+                {src:"typescript",title:"typescript"},
+                {src:"nextjs",title:"nextjs" },
+                {src:"tailwind",title:"tailwind"},
+            ],
+            backends: [
+                {src:"vercel",title:"vercel",class_name:"base-white-svg"},
+                {src:"postgres",title:"postgres"},
+            ],
+            versionControls: [
+                {src:"git",title:"git"},
+                {src:"github",title:"github",class_name:"base-white-svg"},
+            ],
+        },
+        reflection:[
+            "검색 친화적인 웹 페이지를 만들기 위해 SSR를 지원하는 Next.js를 채택했습니다.",
+            "Next.js를 처음 학습하고 사용할 때 폴더 구조 라우팅과 전역 변수 선언으로 컴포넌트에 전달하는 것이 생소해서 처음에는 적응하는 데 어려움이 있었습니다. 하지만 약 1년 동안 React를 사용해봤기 때문에 React Hook이나 컴포넌트 사용에는 문제가 없었습니다.",
+            "문제는 App Router였는데, 입문자가 사용하기 쉬워서 채택했으나 생각보다 지원하지 않는 기능이 많아 아쉬웠습니다. 특히 get--Props를 사용하지 못해 서버 캐싱 기능을 사용하지 못한 점이 아쉬웠습니다.",
+            "Tailwind 대신 Styled Components를 사용해보고자 했으나, Next.js에서 사용하려면 CSR이 강제되어 의미가 퇴색되어 Tailwind를 사용했습니다. Redux도 사용하려고 했으나 페이지가 간단하여 필요 없었고, 마찬가지로 CSR이 강제되기에 사용하지 않았습니다.",
+            "아쉬운 부분이 많았지만, 여러 검색엔진에 메타데이터를 등록하고 검색 친화적인 코드를 작성하는 경험을 했을 뿐만 아니라 Next.js로 SSR웹페이지를 구현해보는 값진 경험을 할 수 있었습니다."
+            
+
         ],
         date:"20240307~20240417",
     }

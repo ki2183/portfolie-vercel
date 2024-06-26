@@ -1,6 +1,8 @@
 import GetSVG from "../../../../../FOLDER_svg/getSVG"
 import "./viewINFO.scss"
-import { InfoModal_type, projectInformation_type, project_information_dto } from "../../../../../projectInformation"
+import { InfoModal_type, project_information_dto } from "../../../../../projectInformation"
+import { useAppDispatch } from "../../../../../REDUX/hooks"
+import { modal_open } from "../../../../../REDUX/Slices/modalSlice"
 
 type ViewINFO_type = {
     informationRef: React.MutableRefObject<(HTMLDivElement | null)[]>
@@ -47,32 +49,41 @@ function ProejectINFOParts({
     informationRef,
     projectInformation
 }:ViewINFOParts_interface){
-    // const {link,info,title,frontend,backend,versionControl} = projectInformation
-    const {link,title,stacks,reason,date} = projectInformation
+    const {link,git,title,stacks,reason,date} = projectInformation
     const {backends,frontends,versionControls} = stacks
 
-    const click_link = () =>{
-        window.location.href = link
+    const click_link = (e:React.MouseEvent<HTMLSpanElement>) => window.location.href = link
+    const click_git = (e:React.MouseEvent<HTMLSpanElement>) => window.location.href = git
+    const dispatch = useAppDispatch()
+
+    const modal_is_open = (e:React.MouseEvent<HTMLButtonElement>) =>{
+        e.preventDefault()
+        dispatch(modal_open())
     }
 
     return(
         <div className="f-c-c-c" ref={el => informationRef.current[idx] = el}>
-        <div className="projectView-info-in f-c-c-c">
-            <span className="projectView-in-title">{title}</span>
-            <div className="f-c-c-c">
-                <span>{reason[1]}</span>
+            <div className="projectView-info-in f-c-c-c">
+                <span className="projectView-in-title">{title}</span>
+                <div className="f-c-c-c">
+                    <span>{reason[1]}</span>
+                </div>
             </div>
-        </div>
-
-        <div className="projectView-info-link f-r-c-s">
-           <span>link:</span>
-           <span onClick={e=>click_link()}>{link}</span>
-           
-        </div>
-        <div className="projectView-info-date f-r-c-s">
-            <span>기간:</span>
-            <span>{date}</span>
-        </div>
+            <div className="projectView-info-link">
+                <div>
+                    <span>git:</span>
+                    <span onClick={click_git}>{git}</span>
+                </div>
+                <div>
+                    <span>link:</span>
+                    <span onClick={click_link}>{link}</span>
+                </div>
+            </div>
+        
+            <div className="projectView-info-date f-r-c-s">
+                <span>기간:</span>
+                <span>{date}</span>
+            </div>
         <div className="projectView-info-skill-set f-c-s-s">
             {
                 frontends && (
@@ -92,7 +103,7 @@ function ProejectINFOParts({
                 
             {
                 backends && (
-                    <div className=" f-r-c-s">
+                    <div className="f-r-c-s">
                         {
                             backends.map((item,idx)=>(
                                 <span key={idx} className="f-r-c-c">
@@ -107,7 +118,7 @@ function ProejectINFOParts({
             }
             {
                 versionControls && (
-                    <div className=" f-r-c-s">
+                    <div className="f-r-c-s">
                         {
                             versionControls.map((item,idx)=>(
                                 <span key={idx} className="f-r-c-c">
@@ -121,6 +132,8 @@ function ProejectINFOParts({
                 )
             }
             </div>
+
+            <button onClick={modal_is_open} className="projectButton text-color">자세히보기</button>
         
     </div>
     )

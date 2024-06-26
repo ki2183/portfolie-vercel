@@ -6,8 +6,7 @@ import { useDispatch } from "react-redux"
 import { useAppSelector } from "../../REDUX/hooks"
 import { modal_close } from "../../REDUX/Slices/modalSlice"
 import GetSVG from "../../FOLDER_svg/getSVG"
-import React, { useEffect, useRef } from "react"
-import { features } from "process"
+import { useEffect, useRef, useState } from "react"
 import { project_information_dto } from "../../projectInformation"
 
 function ViewModal(){
@@ -15,6 +14,8 @@ function ViewModal(){
     const viewNum = useAppSelector(state => state.viewNum)
     const {window} = useAppSelector(state => state.theme)
     const dispatch = useDispatch()
+    const [num ,setNum] = useState<number>(project_information_dto.length - 1)
+
     const customModalStyles: ReactModal.Styles = {
         overlay: {
           backgroundColor: " rgba(0, 0, 0, 0.4)",
@@ -47,20 +48,25 @@ function ViewModal(){
       };
 
     const ref = useRef<HTMLOListElement>(null)
+
+    useEffect(()=>{
+        setNum(project_information_dto.length -1 -viewNum)
+    },[viewNum])
+
     
     return (
       <ReactModal style={customModalStyles} isOpen={modal} onRequestClose={()=>dispatch(modal_close())}>
         <div className="container-modal fccs" onScroll={e=>{
             e.stopPropagation()
         }}>
-            <ModalTitle title={project_information_dto[viewNum].title}/>
+            <ModalTitle title={project_information_dto[num].title}/>
             <div className="modal-line"/>
             <ol className="fcsc" ref={ref}>
-                <ModalLink link={project_information_dto[viewNum].link}/>
-                <ModalReason reason={project_information_dto[viewNum].reason}/>
-                <ModalManufacturing manufacturing={project_information_dto[viewNum].feature}/>
-                <ModalStack frontends={project_information_dto[viewNum].stacks.frontends} backends={project_information_dto[viewNum].stacks.backends} versionControls={project_information_dto[viewNum].stacks.versionControls}/>
-                <ModalReflection reflection={project_information_dto[viewNum].reflection}/>
+                <ModalLink link={project_information_dto[num].link}/>
+                <ModalReason reason={project_information_dto[num].reason}/>
+                <ModalManufacturing manufacturing={project_information_dto[num].feature}/>
+                <ModalStack frontends={project_information_dto[num].stacks.frontends} backends={project_information_dto[num].stacks.backends} versionControls={project_information_dto[num].stacks.versionControls}/>
+                <ModalReflection reflection={project_information_dto[num].reflection}/>
             </ol>
         </div>
       </ReactModal>

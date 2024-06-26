@@ -45,6 +45,7 @@ export const GlobalStyle = createGlobalStyle`
         background:${({ theme }: { theme: any }) => theme.modal_scroll_button};
  
       }
-}
-
+      .text-color{
+        color:${({ theme }: { theme: any }) => theme.text};
+    }
 `;

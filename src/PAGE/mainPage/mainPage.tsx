@@ -1,4 +1,3 @@
-import "./mainPage.scss"
 import { InitialFrame } from "../../COMPONENTS/frame/initial_frame"
 import MainBanner from "./mainBanner/mainBanner"
 import ProjectView from "./projectView/projectView"

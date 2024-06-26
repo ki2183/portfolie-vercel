@@ -18,6 +18,8 @@ import mongoDB from "./mongodb.svg"
 import typescript from "./typescript.svg"
 import scss from "./scss.svg"
 import velog from "./velog.svg"
+import postgres from "./postgres.svg"
+import nextjs from "./nextjs.svg"
 
 type GetSVG_type = {
     src:string
@@ -67,6 +69,10 @@ function GetSVG({src,class_name}:GetSVG_type){
         src_ = scss
     else if (src === "velog")
         src_ = velog
+    else if (src === "nextjs")
+        src_ = nextjs
+    else if (src === "postgres")
+        src_ = postgres
 
     return(
         <img 
