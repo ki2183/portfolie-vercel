@@ -187,7 +187,7 @@ export const project_information_dto = [
             하지만 이 문제는 컴포넌트의 라이프 사이클 관리에 개선을 도입함으로써 해결했습니다. ScrollTrigger의 kill메소드는 모든 ScrollTrigger을 없앴기에 clean up시 \
             해당 ref에 할당되어있는 애니메이션을 kill함으로써 간섭을 줄이고 리사이즈시 ScrollTrigger가 초기화 되는 문제를 해결했습니다.",
         ],
-        date:"20240307~20240417",
+        date:"20240422~20240525",
     },{
         img:"geosantech",
         title:"거산테크",
@@ -223,10 +223,8 @@ export const project_information_dto = [
             "문제는 App Router였는데, 입문자가 사용하기 쉬워서 채택했으나 생각보다 지원하지 않는 기능이 많아 아쉬웠습니다. 특히 get--Props를 사용하지 못해 서버 캐싱 기능을 사용하지 못한 점이 아쉬웠습니다.",
             "Tailwind 대신 Styled Components를 사용해보고자 했으나, Next.js에서 사용하려면 CSR이 강제되어 의미가 퇴색되어 Tailwind를 사용했습니다. Redux도 사용하려고 했으나 페이지가 간단하여 필요 없었고, 마찬가지로 CSR이 강제되기에 사용하지 않았습니다.",
             "아쉬운 부분이 많았지만, 여러 검색엔진에 메타데이터를 등록하고 검색 친화적인 코드를 작성하는 경험을 했을 뿐만 아니라 Next.js로 SSR웹페이지를 구현해보는 값진 경험을 할 수 있었습니다."
-            
-
         ],
-        date:"20240307~20240417",
+        date:"20240530~20240624",
     }
 
 ] as InfoModal_type[]

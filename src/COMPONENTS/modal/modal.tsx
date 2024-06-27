@@ -62,7 +62,7 @@ function ViewModal(){
             <ModalTitle title={project_information_dto[num].title}/>
             <div className="modal-line"/>
             <ol className="fcsc" ref={ref}>
-                <ModalLink link={project_information_dto[num].link}/>
+                <ModalLink link={project_information_dto[num].link} git={project_information_dto[num].git}/>
                 <ModalReason reason={project_information_dto[num].reason}/>
                 <ModalManufacturing manufacturing={project_information_dto[num].feature}/>
                 <ModalStack frontends={project_information_dto[num].stacks.frontends} backends={project_information_dto[num].stacks.backends} versionControls={project_information_dto[num].stacks.versionControls}/>
@@ -102,10 +102,14 @@ function ModalTitle({title}:ModalTitle_type){
 
 export type ModalLink_type = {
     link:string
+    git:string
 }
-function ModalLink({link}:ModalLink_type){
+function ModalLink({link,git}:ModalLink_type){
     const click_link = () => {
         window.location.href = link
+    }
+    const click_git = () => {
+        window.location.href = git
     }
     return (
         <li className="fcsc conatiner-modal-li">
@@ -122,7 +126,12 @@ function ModalLink({link}:ModalLink_type){
                             {link}
                         </a>
                     </li>
-                    
+                    <li>
+                        <span>2</span>
+                        <a onClick={click_git} className="link-project">
+                            {git}
+                        </a>
+                    </li>
                    </ol>
                     
                 </li>
