@@ -32,18 +32,18 @@
             border: 2px solid #cdcdcd;
             cursor: pointer;
         }&>img:nth-child(2){
-            transform: rotate(180deg);
+            transform: rotateX(180deg);
             position: absolute;
             left: 0;
             top: 100%;
             mask-image: linear-gradient(to bottom, rgb(255 255 255 / 0%) 0%, rgb(255 255 255 / 0%) 50%, rgb(255 255 255 / 30%) 100%);
         }
     }
-    &>img:nth-child(2){
-        transform: rotate(180deg);
-        // opacity: 0.3;
-        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5)); /* 그라데이션으로 투명도 조절 */
-    }
+    // &>img:nth-child(2){
+    //     transform: rotateX(180deg);
+    //     // opacity: 0.3;
+    //     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5)); /* 그라데이션으로 투명도 조절 */
+    // }
 }#triangle1{
     position:absolute;
     top: 15%;
