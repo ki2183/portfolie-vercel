@@ -286,7 +286,7 @@ function AboutFrame({
     useEffect(()=>{
         ani()
         return ()=>{
-            // ani().kill()
+            ani().kill()
         }    
     },[wh])
 

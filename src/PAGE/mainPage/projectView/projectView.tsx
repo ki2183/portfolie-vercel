@@ -51,12 +51,7 @@ function ProjectView(){
     },[])
 
     useGSAP(()=>{
-        scroll_setup_handler()
-    },[]) //initial scroll_set_animation
-
-
-    useGSAP(()=>{
-
+        
         const scroll_setup_async = async()=>{
             const func = () =>{
                 const Trigger1 = ScrollTrigger.getById("scroll-img");
@@ -68,11 +63,12 @@ function ProjectView(){
                 const Trigger3 = ScrollTrigger.getById("scroll-info");
                 if(Trigger3)
                     Trigger3.kill()
-                }
+            }
      
             await func()
             await scroll_setup_handler()
         } 
+
         scroll_setup_async()
     },[wh]) //resize scroll_set_animation async
 

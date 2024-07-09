@@ -17,6 +17,7 @@ const initialWH = {
 }
 type wh_type = typeof initialWH
 
+
 function MyBlog(){
     const initialXY = {x:0,y:0}
     type mouseXY_type = typeof initialXY
@@ -24,11 +25,27 @@ function MyBlog(){
 
     const elRef = useRef<Array<HTMLDivElement|null>>([]) 
     const circleRef = useRef<Array<HTMLDivElement|null>>([])
+    const [wh,setWH] = useState<wh_type>(initialWH)
 
     const goURL = (url:string) =>{
         window.location.href = url
     }
 
+    const getWH = () => {
+        const width = window.innerWidth
+        const height = window.innerHeight
+        setWH({w:width,h:height})
+    }
+
+    useEffect(()=>{ // resize => get width height
+        getWH()
+        window.addEventListener('resize',getWH)
+        return ()=>{
+            window.removeEventListener('resize',getWH)
+        }
+    },[])
+
+    //#region hover animation
     const animation_enter = (e:MouseEvent,idx:number)=>{
         
         const tl = gsap.timeline()
@@ -65,8 +82,9 @@ function MyBlog(){
         if(circleRef.current[idx])
             gsap.to(circleRef.current[idx],{left:e.offsetX,top:e.offsetY,duration:1})
     }
-
+    
     useEffect(()=>{
+        scroll_event()
         elRef.current.map((child,idx)=>{
             if(child){
                 child.addEventListener("mouseenter",e => mouse_enter_event(e,idx))
@@ -86,6 +104,7 @@ function MyBlog(){
         }
     },[])
 
+
     const scroll_event =()=>{
         const tl = gsap.timeline()
         tl.from(elRef.current[0],{
@@ -97,6 +116,7 @@ function MyBlog(){
             duration:0.5,
         },1)
         ScrollTrigger.create({
+            id:"myBlog",
             trigger:".container-myBlog",
             animation:tl,
             scrub:1,
@@ -105,10 +125,12 @@ function MyBlog(){
             toggleActions:"restart none reverse none"
         })
     }
+    //#endregion
 
-    useGSAP(()=>{
+    useEffect(()=>{
         scroll_event()
-    },[])    
+        return ScrollTrigger.getById('myBlog')?.kill()
+    },[wh])    
 
     return(
         <div className="container-myBlog frcc" >
