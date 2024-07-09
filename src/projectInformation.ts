@@ -123,7 +123,7 @@ export const project_information_dto = [
     },{
         img:"memo",
         title:"메모 웹",
-        link:"memo-vercel.vercel.app",
+        link:"https://www.g1nu.site/",
         git:"https://memo-vercel.vercel.app/",
         reason:[
             "메모 웹사이트입니다.",
