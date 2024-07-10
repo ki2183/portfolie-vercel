@@ -123,8 +123,8 @@ export const project_information_dto = [
     },{
         img:"memo",
         title:"메모 웹",
-        link:"https://www.g1nu.site/",
-        git:"https://memo-vercel.vercel.app/",
+        link:"https://memo-vercel.vercel.app/",
+        git:"https://github.com/ki2183/memo-vercel",
         reason:[
             "메모 웹사이트입니다.",
             "이 프로젝트는 메모 웹사이트를 개발하는 것이었습니다. 첫 프로젝트부터 벨로그나 노션 같은 텍스트 에디터를 만들어 리뷰/댓글 작성 기능에 적용하고 싶었으나, 당시 실력 부족으로 구현하지 못했습니다. 이후, React Query와 Redux를 학습하고 나서 React Query가 이 프로젝트에 적합한 컨셉이라고 생각되어 사용하게 되었습니다.",
@@ -158,7 +158,7 @@ export const project_information_dto = [
     },{
         img:"portfolie",
         title:"폴트폴리오 사이트",
-        link:"https://portfolie-vercel.vercel.app/",
+        link:"https://www.g1nu.site/",
         git:"https://github.com/ki2183/my-Portfolio-site",
         reason:[
             "폴트폴리오 사이트 입니다.",
