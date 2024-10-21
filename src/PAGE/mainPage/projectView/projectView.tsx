@@ -83,13 +83,16 @@ function ProjectView(){
     return (
         <div ref={ref} className="container-projectView">
             <ViewModal/>
-           <ViewIMG imgRef={imgRef}/>
-           <ViewLINE
+
+            <ViewIMG imgRef={imgRef}/>
+
+            <ViewLINE
                 num={project_information_dto.length}
                 bdFstRef={bdFstRef}
                 bdSecRef={bdSecRef}
                 bdTrdRef={bdTrdRef}
             />
+            
             <ViewINFO
                 wh={wh}
                 informationRef={informationRef}

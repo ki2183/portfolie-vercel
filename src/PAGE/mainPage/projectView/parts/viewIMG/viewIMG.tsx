@@ -1,11 +1,12 @@
 import "./viewIMG.scss"
-import GetIMG from "../../../../../FOLDER_img/getIMG"
+
 import { project_information_dto } from "../../../../../projectInformation"
-import { useAppDispatch } from "../../../../../REDUX/hooks"
 import { modal_open } from "../../../../../REDUX/Slices/modalSlice"
-import { useEffect, useLayoutEffect } from "react"
-import gsap from "gsap"
+import { useAppDispatch } from "../../../../../REDUX/hooks"
+import GetIMG from "../../../../../FOLDER_img/getIMG"
+import { useLayoutEffect } from "react"
 import { useGSAP } from "@gsap/react"
+import gsap from "gsap"
 type ViewIMG_type ={
     imgRef: React.MutableRefObject<(HTMLDivElement | null)[]>
 }
@@ -22,6 +23,7 @@ function ViewIMG({
             
         })
     },[])
+    
     useGSAP(()=>{
         gsap.to("#triangle1",{
             opacity:0,
@@ -29,6 +31,7 @@ function ViewIMG({
             duration:4,
         })
     },[])
+
     return (
         <>
             <div className="frame-projectView-img f-c-c-c" >
