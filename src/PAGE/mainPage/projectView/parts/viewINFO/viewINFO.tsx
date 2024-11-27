@@ -133,7 +133,7 @@ function ProejectINFOParts({
             }
             </div>
 
-            <button onClick={modal_is_open} className="projectButton text-color">자세히보기</button>
+            {/* <button onClick={modal_is_open} className="projectButton text-color">자세히보기</button> */}
         
     </div>
     )

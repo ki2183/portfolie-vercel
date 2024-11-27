@@ -20,6 +20,7 @@ import scss from "./scss.svg"
 import velog from "./velog.svg"
 import postgres from "./postgres.svg"
 import nextjs from "./nextjs.svg"
+import recoil from "./recoil.png"
 
 type GetSVG_type = {
     src:string
@@ -55,7 +56,7 @@ function GetSVG({src,class_name}:GetSVG_type){
         src_ = nodejs
     else if (src === "redux")
         src_ = redux
-    else if (src === "reactquery")
+    else if (src === "react-query")
         src_ = reactqurey
     else if (src === "aws")
         src_ = aws
@@ -73,6 +74,8 @@ function GetSVG({src,class_name}:GetSVG_type){
         src_ = nextjs
     else if (src === "postgres")
         src_ = postgres
+    else if (src === "recoil") 
+        src_ = recoil
 
     return(
         <img 

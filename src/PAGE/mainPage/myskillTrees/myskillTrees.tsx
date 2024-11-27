@@ -65,12 +65,12 @@ function AboutMe({wh}:about_type){
                         <li>
                             <span>1</span> 
                             <span>
-                                안녕하세요! 저는 프론트엔드 신입개발자가 되길 바라는 <span className={theme === "dark"?"green":"blue"}>김기준</span>입니다.
+                                안녕하세요! 저는 프론트엔드 신입개발자 <span className={theme === "dark"?"green":"blue"}>김기준</span>입니다.
                             </span>
                         </li>
                         <li>
                             <span>2</span>
-                            <span> 비록 성적 맞춰 진학한 과였지만 웹 프로그래밍 수업후 관심을 갖게 되어 프런트엔드 개발자를 꿈꾸게 되었습니다.</span>
+                            <span> 인터렉티브 웹에 빠져 프런트엔드 공부를 시작했습니다. 또한, </span>
 
                         </li>
                         <li>
@@ -105,11 +105,14 @@ function AboutFrontend({wh}:about_type){
             src:"nextjs",
             name:"nextjs"
         },{
-            src:"reactquery",
-            name:"reactquery"
+            src:"react-query",
+            name:"react-query"
         },{
             src:"redux",
             name:"redux"
+        },{
+            src:"recoil",
+            name:"recoil"
         },{
             src:"scss",
             name:"scss"
@@ -131,7 +134,7 @@ function AboutFrontend({wh}:about_type){
                     {
                         (svgArr && svgArr.length > 0) && svgArr.map((item,idx)=>(
                             <li className="frcc" key={idx}>
-                            <GetSVG src={item.src}/>
+                            <GetSVG class_name="tree-icon" src={item.src}/>
                             <span>{item.name}</span>
                         </li>
                         ))

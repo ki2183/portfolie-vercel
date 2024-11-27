@@ -16,26 +16,26 @@ function ViewIMG({
 
 }:ViewIMG_type){
 
-    useLayoutEffect(()=>{
-        gsap.set("#triangle1",{
-            skewY:9,
-            rotateY:-9,
+    // useLayoutEffect(()=>{
+    //     gsap.set("#triangle1",{
+    //         skewY:9,
+    //         rotateY:-9,
             
-        })
-    },[])
+    //     })
+    // },[])
     
-    useGSAP(()=>{
-        gsap.to("#triangle1",{
-            opacity:0,
-            repeat:Infinity,
-            duration:4,
-        })
-    },[])
+    // useGSAP(()=>{
+    //     gsap.to("#triangle1",{
+    //         opacity:0,
+    //         repeat:Infinity,
+    //         duration:4,
+    //     })
+    // },[])
 
     return (
         <>
             <div className="frame-projectView-img f-c-c-c" >
-                <div id="triangle1"/>
+                <div id="triangle12"/>
                 <div>
                     {
                         (project_information_dto && project_information_dto.length > 0) &&
@@ -69,7 +69,7 @@ function ViewIMGPart({
     const dispatch = useAppDispatch()
 
     const modal_is_open = () =>{
-        dispatch(modal_open())
+        // dispatch(modal_open())
     }
 
     return (
