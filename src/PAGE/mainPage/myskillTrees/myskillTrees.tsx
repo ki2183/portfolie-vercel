@@ -164,9 +164,6 @@ function AboutBackend({wh}:about_type){
             src:"vercel",
             name:"vercel",
             baseColor:"base-white-svg"
-        },{
-            src:"postgres",
-            name:"postgres",
         }
     ]
 
