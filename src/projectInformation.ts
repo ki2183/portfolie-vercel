@@ -90,38 +90,6 @@ export const project_information_dto = [
         ],
         date:"2023/09 ~ 2023/10",
     },{
-        img:"music",
-        title:"뮤직플레이어",
-        link:"https://music-ts-gamma.vercel.app/",
-        git:"https://github.com/ki2183/music_ts",
-        reason:[
-            "뮤직플레이어 입니다.",
-            "평소에 게임bgm을 많이 듣는데 음악 스트리밍 사이트나 유튜브에는 듣고 싶은 음악이 없는 경우가 있어 아쉬워서 내가 듣는 노래를 모아놓은 사이트를 만들어야지 싶어 만들었습니다",
-        ],
-        feature:["재생","무한재생","셔플","컨트롤 바"],
-        stacks:{
-            frontends:[
-                {src:"html",title:"html"},
-                {src:"css",title:"css"},
-                {src:"typescript",title:"typescript"},
-                {src:"react",title:"react"},
-                {src:"tailwind",title:"tailwind"},
-            ],
-            backends: [
-                {src:"vercel",title:"vercel",class_name:"base-white-svg"},
-            ],
-            versionControls: [
-                {src:"git",title:"git"},
-                {src:"github",title:"github",class_name:"base-white-svg"},
-            ],
-        },
-        reflection:[
-            '자동 타입지정해주는 javascript에 한계를 느껴 typescript를 생산성을 늘리기위해 tailwind를 학습하고 적용해보기위해 토이 프로젝트를 진행했습니다.',
-            '이전 프로젝트에서는 컴포넌트에 함수를 그냥 명시했었는데 유지보수성과 확장성을 위해서 custom-hook 디자인패턴을 사용했습니다.',
-            '생산성을 향상시키기 위해서 tailwind를 사용해 보았습니다.'
-        ],
-        date:"2023/12 ~ 2024/01",
-    },{
         img:"memo",
         title:"메모 웹",
         link:"https://memo-vercel.vercel.app/",
