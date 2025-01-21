@@ -70,12 +70,12 @@ function AboutMe({wh}:about_type){
                         </li>
                         <li>
                             <span>2</span>
-                            <span> 인터렉티브 웹에 빠져 프런트엔드 공부를 시작했습니다. 또한, </span>
+                            <span> 저는 인터렉티브 웹에 흥미를 갖고 프런트엔드 공부를 시작했습니다. </span>
 
                         </li>
                         <li>
                             <span>3</span>
-                            <span>더 완성도 있는 코드, 더 발전하는 ux/ui를 만들 수 있는 사람이 되겠습니다.</span>
+                            <span> 사용자들이 만족할만한 ux/ui를 만들 수 있는 사람이 되겠습니다.</span>
                         </li>                        
                     </ol>
             </AboutFrame>
@@ -149,10 +149,6 @@ function AboutBackend({wh}:about_type){
 
     const svgArr = [
         {
-            src:"nodejs",
-            name:"nodeJS",
-            baseColor:"base-black-svg"
-        },{
             src:"mongodb",
             name:"mongoDB",
             baseColor:"none"
@@ -171,7 +167,7 @@ function AboutBackend({wh}:about_type){
         <AboutFrame 
                 x={-300}
                 wh={wh}
-                title={"backend-me"}
+                title={"backend-deploy-me"}
                 class_name_in="container-backend-in"
                 class_name_out="container-backend-out"
             >
@@ -201,10 +197,6 @@ function AboutVersionControl({wh}:about_type){
             src:"github",
             name:"github",
             baseColor:"base-white-svg"
-        },{
-            src:"jira",
-            name:"jira",
-            baseColor:""
         }
     ]
 
