@@ -9,18 +9,16 @@ import ViewLINE from "./parts/viewLINE/viewLINE"
 import ViewINFO from "./parts/viewINFO/viewINFO"
 import { project_information_dto } from "../../../projectInformation"
 import ViewModal from "../../../COMPONENTS/modal/modal"
-import { useAppDispatch } from "../../../REDUX/hooks"
+import { useAppDispatch, useAppSelector } from "../../../REDUX/hooks"
 import { chanage_view_number } from "../../../REDUX/Slices/viewNumSlice"
+
 
 gsap.registerPlugin(ScrollTrigger)
 
 function ProjectView(){
 
     const ref = useRef<HTMLDivElement>(null) //total DIV
-    const [wh,setWH] = useState<{w:number,h:number}>({ //width height
-        w:0,
-        h:0
-    })
+    const wh = useAppSelector(store => store.wh);
     const gap = 48 
     const [pageNum,setPageNum] = useState<number>(0) //pageNumber
     const bdFstRef = useRef<Array<HTMLDivElement|null>>([])
@@ -33,26 +31,12 @@ function ProjectView(){
     const scroll_page_handler = () => scrollTrigger_page_handler({gap,imgRef,pageNum,informationRef})
     const scroll_setup_handler = () => scrollTrigger_setup_handler({ref,imgRef,bdFstRef,bdSecRef,bdTrdRef,page_hanler,pageNum})
     const page_hanler = (num:number)=> setPageNum(num) // setPage Func
-
+    
     const dispatch = useAppDispatch()
-
-    const getWH = () => {
-        const width = window.innerWidth
-        const height = window.innerHeight
-        setWH({w:width,h:height})
-    }
-
-    useEffect(()=>{ // resize => get width height
-        getWH()
-        window.addEventListener('resize',getWH)
-        return ()=>{
-            window.removeEventListener('resize',getWH)
-        }
-    },[])
 
     useGSAP(()=>{
         
-        const scroll_setup_async = async()=>{
+        const scroll_setup_async = () => {
             const func = () =>{
                 const Trigger1 = ScrollTrigger.getById("scroll-img");
                 if(Trigger1)
@@ -65,16 +49,27 @@ function ProjectView(){
                     Trigger3.kill()
             }
      
-            await func()
-            await scroll_setup_handler()
+            func()
+            scroll_setup_handler()
         } 
 
         scroll_setup_async()
+
+        return () => {
+            const Trigger1 = ScrollTrigger.getById("scroll-img");
+            if(Trigger1) Trigger1.kill()
+
+            const Trigger2 = ScrollTrigger.getById("scroll-line");
+            if(Trigger2) Trigger2.kill()
+                
+            const Trigger3 = ScrollTrigger.getById("scroll-info");
+            if(Trigger3) Trigger3.kill()  
+        }
     },[wh]) //resize scroll_set_animation async
 
     useGSAP(()=>{
         scroll_page_handler()
-    },[pageNum,wh]) //pageNum animation
+    },{dependencies:[pageNum,wh], scope:ref}) //pageNum animation
 
     useEffect(()=>{
         dispatch(chanage_view_number(pageNum))
@@ -94,7 +89,6 @@ function ProjectView(){
             />
             
             <ViewINFO
-                wh={wh}
                 informationRef={informationRef}
             />
         </div>

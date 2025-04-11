@@ -1,22 +1,17 @@
 import GetSVG from "../../../../../FOLDER_svg/getSVG"
 import "./viewINFO.scss"
 import { InfoModal_type, project_information_dto } from "../../../../../projectInformation"
-import { useAppDispatch } from "../../../../../REDUX/hooks"
+import { useAppDispatch, useAppSelector } from "../../../../../REDUX/hooks"
 import { modal_open } from "../../../../../REDUX/Slices/modalSlice"
 
 type ViewINFO_type = {
     informationRef: React.MutableRefObject<(HTMLDivElement | null)[]>
 }
-interface ViewINFO_interface extends ViewINFO_type{
-    wh:{
-        w:number
-        h:number
-    }
-}
+
 function ViewINFO({
-    wh,
     informationRef
-}:ViewINFO_interface){
+}:ViewINFO_type){
+    const wh = useAppSelector(store => store.wh);
     return(
         <div className="frame-projectView-info">
             <div className="frame-projectView-info-in f-c-c-s">

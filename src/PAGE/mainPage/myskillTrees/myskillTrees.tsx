@@ -1,62 +1,36 @@
 import "./myskillTrees.scss"
 import '../../../flex.scss'
 import "../../../font.scss"
-import { ReactNode, useEffect, useLayoutEffect, useRef, useState } from "react"
+import { ReactNode, useEffect, useRef } from "react"
 import { useGSAP } from "@gsap/react"
 import { hookAnimation } from "./hooks"
 import GetSVG from "../../../FOLDER_svg/getSVG"
-import gsap, { TweenLite } from 'gsap';
+import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useAppSelector } from "../../../REDUX/hooks"
 gsap.registerPlugin(ScrollTrigger)
 
-const initialWH = {
-    w:0,
-    h:0
-}
-type wh_type = typeof initialWH
-
 function MyskillTrees(){
-
-    
-    const [wh,setWH] = useState<wh_type>(initialWH)
     const containerRef = useRef<HTMLDivElement>(null)
-    
-    const setWH_handler = (w:number,h:number)=>{
-        setWH({w,h})
-    }
-
-    const resize_handler = ()=>{
-        setWH_handler(window.innerWidth,window.innerHeight)
-    }
-
-    useEffect(()=>{
-        window.addEventListener('resize',resize_handler)
-        return()=>{
-            window.removeEventListener('resize',resize_handler)
-        }
-    },[wh])
 
     return(
         <div className="container-myskilltrees" ref={containerRef}>
-            <AboutMe wh={wh}/>
-            <AboutFrontend wh={wh}/>
-            <AboutBackend wh={wh}/>
-            <AboutVersionControl wh={wh}/>
+            <AboutMe />
+            <AboutFrontend />
+            <AboutBackend />
+            <AboutVersionControl />
         </div>
     )
 }
 
 export default MyskillTrees;
-type about_type = {
-    wh:wh_type,
-}
-function AboutMe({wh}:about_type){
-    const {theme} = useAppSelector(state => state.theme)
+
+function AboutMe() {
+    const {theme} = useAppSelector(state => state.theme);
+
     return (
             <AboutFrame 
                 y={-50}
-                wh={wh}
                 title={"about-me"}
                 class_name_in="container-aboutme-in"
                 class_name_out="container-aboutme-out"
@@ -82,8 +56,7 @@ function AboutMe({wh}:about_type){
     )
 }
 
-function AboutFrontend({wh}:about_type){
-
+function AboutFrontend(){
     const svgArr = [
         {
             src:"html",
@@ -125,7 +98,6 @@ function AboutFrontend({wh}:about_type){
     return (
         <AboutFrame 
                 y={70}
-                wh={wh}
                 title={"frontend-me"}
                 class_name_in="container-frontend-in"
                 class_name_out="container-frontend-out"
@@ -145,8 +117,7 @@ function AboutFrontend({wh}:about_type){
     )
 }
 
-function AboutBackend({wh}:about_type){
-
+function AboutBackend(){
     const svgArr = [
         {
             src:"mongodb",
@@ -166,7 +137,6 @@ function AboutBackend({wh}:about_type){
     return (
         <AboutFrame 
                 x={-300}
-                wh={wh}
                 title={"backend-deploy-me"}
                 class_name_in="container-backend-in"
                 class_name_out="container-backend-out"
@@ -186,8 +156,8 @@ function AboutBackend({wh}:about_type){
     )
 }
 
-function AboutVersionControl({wh}:about_type){
-
+function AboutVersionControl(){
+    
     const svgArr = [
         {
             src:"git",
@@ -204,7 +174,6 @@ function AboutVersionControl({wh}:about_type){
         <AboutFrame 
                 y={-20}
                 x={-550}
-                wh={wh}
                 title={"version-control-me"}
                 class_name_in="container-vc-in"
                 class_name_out="container-vc-out"
@@ -228,7 +197,6 @@ function AboutVersionControl({wh}:about_type){
 type AboutFrame_type = {
     x?:number,
     y?:number,
-    wh:wh_type
     title:string
     children:ReactNode
     class_name_in:string
@@ -238,13 +206,12 @@ type AboutFrame_type = {
 function AboutFrame({
     x,
     y,
-    wh,
     title,
     children,
     class_name_in,
     class_name_out
 }:AboutFrame_type){
-
+    const wh = useAppSelector(store => store.wh);
     const inRef = useRef<HTMLDivElement>(null)
     const outRef = useRef<HTMLDivElement>(null)
     const {onLeave,onMove} = hookAnimation({outRef,inRef})
