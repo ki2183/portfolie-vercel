@@ -1,49 +1,22 @@
 import "./myBlog.scss"
 import "../../../flex.scss"
-import velog from "../../../FOLDER_svg/velog.svg"
-import github from "../../../FOLDER_svg/github.svg"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 import gsap from "gsap"
 import { useAppSelector } from "../../../REDUX/hooks"
-import { useGSAP } from "@gsap/react"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { useNavigate } from "react-router-dom"
 import GetSVG from "../../../FOLDER_svg/getSVG"
 gsap.registerPlugin(ScrollTrigger)
 
-const initialWH = {
-    w:0,
-    h:0
-}
-type wh_type = typeof initialWH
-
-
 function MyBlog(){
-    const initialXY = {x:0,y:0}
-    type mouseXY_type = typeof initialXY
+    const wh = useAppSelector(store => store.wh);
     const {bg} = useAppSelector(state => state.theme)
 
     const elRef = useRef<Array<HTMLDivElement|null>>([]) 
     const circleRef = useRef<Array<HTMLDivElement|null>>([])
-    const [wh,setWH] = useState<wh_type>(initialWH)
 
     const goURL = (url:string) =>{
         window.location.href = url
-    }
-
-    const getWH = () => {
-        const width = window.innerWidth
-        const height = window.innerHeight
-        setWH({w:width,h:height})
-    }
-
-    useEffect(()=>{ // resize => get width height
-        getWH()
-        window.addEventListener('resize',getWH)
-        return ()=>{
-            window.removeEventListener('resize',getWH)
-        }
-    },[])
+    };
 
     //#region hover animation
     const animation_enter = (e:MouseEvent,idx:number)=>{
@@ -84,7 +57,6 @@ function MyBlog(){
     }
     
     useEffect(()=>{
-        scroll_event()
         elRef.current.map((child,idx)=>{
             if(child){
                 child.addEventListener("mouseenter",e => mouse_enter_event(e,idx))
@@ -105,8 +77,8 @@ function MyBlog(){
     },[])
 
 
-    const scroll_event =()=>{
-        const tl = gsap.timeline()
+    const scroll_event = async () => {
+        const tl = gsap.timeline();
         tl.from(elRef.current[0],{
             y:50,
             duration:0.5,
@@ -114,22 +86,26 @@ function MyBlog(){
         tl.from(elRef.current[1],{
             y:50,
             duration:0.5,
-        },1)
-        ScrollTrigger.create({
-            id:"myBlog",
-            trigger:".container-myBlog",
-            animation:tl,
-            scrub:1,
-            start:"center 90%",
-            end:"center 90%",
-            toggleActions:"restart none reverse none"
-        })
+        },1);
+
+        try {
+            ScrollTrigger.getById('myBlog')?.kill(); 
+        } finally {
+            ScrollTrigger.create({
+                id:"myBlog",
+                trigger:".container-myBlog",
+                animation:tl,
+                scrub:1,
+                start:"center 90%",
+                end:"center 90%",
+                toggleActions:"restart none reverse none"
+            })
+        }
     }
     //#endregion
 
     useEffect(()=>{
-        scroll_event()
-        return ScrollTrigger.getById('myBlog')?.kill()
+        scroll_event(); 
     },[wh])    
 
     return(

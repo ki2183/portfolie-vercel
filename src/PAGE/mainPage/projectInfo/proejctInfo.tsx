@@ -1,7 +1,7 @@
 import { useAppSelector } from "../../../REDUX/hooks"
 import "./proejctInfo.scss"
 import { projectInfoDto, viewTree_type } from "./proejctInfoDto"
-const react_hook_form_SVG  = "https://react-hook-form.com/images/logo/react-hook-form-logo-only.svg"
+// const react_hook_form_SVG  = "https://react-hook-form.com/images/logo/react-hook-form-logo-only.svg"
 
 
 export function ProejctInfo(){
@@ -18,7 +18,7 @@ function ProjectView(){
 
     
     const projectInfo = projectInfoDto()
-    console.log(projectInfo)
+    // console.log(projectInfo)
 
     return (
         <>
